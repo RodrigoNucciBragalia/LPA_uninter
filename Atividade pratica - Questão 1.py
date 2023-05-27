@@ -1,4 +1,5 @@
-def calc_desc(quantidade, valor_unitario): #Função que verifica a quantidade de desconto e faz o calculo do desconto.
+#Função que verifica a quantidade de desconto e faz o calculo do desconto.
+def calc_desc(quantidade, valor_unitario):
     if quantidade < 10:
         desconto_por_unidade = 0
     elif quantidade > 9 and quantidade < 100:
@@ -20,7 +21,10 @@ print('Bem Vindo a Loja do Rodrigo Nucci Bragalia')
 valor_unitario = float(input('Entre com o valor unitario do produto '))
 quantidade = int(input('Entre com a quantidade do produto '))
 
-valor_sem_desconto, valor_com_desconto, desconto_por_unidade = calc_desc(quantidade, valor_unitario) #recebe o valor sem desconto, com desconto e desconto por unidade calculado na função calc_desc
+#recebe o valor sem desconto, com desconto e desconto por unidade calculado na função calc_desc
+valor_sem_desconto, valor_com_desconto, desconto_por_unidade = calc_desc(quantidade, valor_unitario)
 
-print('O valor total da sua compra sem desconto é R${:.2f}'.format(valor_sem_desconto)) #Exibe o valor total sem desconto
-print('O valor total de sua compra com desconto é R${:.2f} total de desconto {}%'.format(valor_com_desconto, desconto_por_unidade*100)) #Exibe o total da compra com desconto e o total de desconto em %
+#Exibe o valor total sem desconto
+print('O valor total da sua compra sem desconto é R${:.2f}'.format(valor_sem_desconto))
+#Exibe o total da compra com desconto e o total de desconto em %
+print('O valor total de sua compra com desconto é R${:.2f} total de desconto {}%'.format(valor_com_desconto, desconto_por_unidade*100))
