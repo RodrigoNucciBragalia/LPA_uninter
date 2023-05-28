@@ -1,4 +1,4 @@
-print('Bem-vindo(a) ao Controle de Estoque da Bicicletaria do Rodrigo Nucci Bragalia')
+print('Bem-vindo ao Controle de Estoque da Bicicletaria do Rodrigo Nucci Bragalia')
 RU = 4473087
 
 def cadastrarPeca():
