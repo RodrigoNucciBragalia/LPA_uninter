@@ -4,10 +4,15 @@ RU = 4473087
 def cadastrarPeca():
     # Função para cadastrar uma nova peça no estoque
     peca = {
-        'nome': input('Insira o nome da peça a ser cadastrada: '),
-        'fabricante': input('Insira o fabricante da peça: '),
-        'valor': float(input('Insira o valor da peça: ')),
+        'código': contador,
+        'nome': '',
+        'fabricante': '',
+        'valor': 0.0,
     }
+    print('Código da peça {}'.format(peca['código']))
+    peca['nome'] = input('Insira o nome da peça a ser cadastrada: ')
+    peca['fabricante'] = input('Insira o fabricante da peça: ')
+    peca['valor'] = float(input('Insira o valor da peça: '))
     return peca
 
 
@@ -40,7 +45,7 @@ def consultarTodasPecas(pecas):
     if pecas:
         for i in range(len(pecas)):
             peca = pecas[i]
-            print(f'Peça {i+1}:')
+            print(f'Código: {peca["código"]}')
             print(f'Nome: {peca["nome"]}')
             print(f'Fabricante: {peca["fabricante"]}')
             print(f'Valor: R$ {peca["valor"]:.2f}')
@@ -52,10 +57,10 @@ def consultarTodasPecas(pecas):
 def consultarPecasPorCodigo(pecas):
     # Função para pesquisar peças por código no estoque
     print('\n*** Consultar Peças por Código ***')
-    codigo = input('\nDigite o código da peça desejada: ')
+    codigo = float(input('\nDigite o código da peça desejada: '))
     for peca in pecas:
-        if peca['codigo'] == codigo:
-            print(f'Código: {peca["codigo"]}')
+        if peca['código'] == codigo:
+            print(f'Código: {peca["código"]}')
             print(f'Nome: {peca["nome"]}')
             print(f'Fabricante: {peca["fabricante"]}')
             print(f'Valor: R$ {peca["valor"]:.2f}')
@@ -70,7 +75,7 @@ def consultarPecasPorFabricante(pecas):
     fabricante = input('\nDigite o fabricante da peça: ')
     for peca in pecas:
         if peca['fabricante'] == fabricante:
-            print(f'Código: {peca["codigo"]}')
+            print(f'Código: {peca["código"]}')
             print(f'Nome: {peca["nome"]}')
             print(f'Fabricante: {peca["fabricante"]}')
             print(f'Valor: R$ {peca["valor"]:.2f}')
@@ -79,9 +84,9 @@ def consultarPecasPorFabricante(pecas):
 
 def removerPeca(pecas):
     # Função para remover uma peça do estoque
-    codigo = input('Insira o código da peça que você deseja excluir: ')
+    codigo = float(input('Insira o código da peça que você deseja excluir: '))
     for i in range(len(pecas)):
-        if pecas[i]['codigo'] == codigo:
+        if pecas[i]['código'] == codigo:
             del pecas[i]
             print('Peça excluída com sucesso do estoque.')
             break
@@ -90,7 +95,7 @@ def removerPeca(pecas):
 
 
 pecas = []  # Lista para armazenar as peças do estoque
-contador = 1  # Variável para controlar o código das peças
+contador = 0  # Variável para controlar o código das peças
 
 while True:
     print('\n--- Menu ---')
@@ -103,10 +108,8 @@ while True:
 
     if opcao == '1':
         print('\n--- Adicionar Peça ao Estoque ---')
-        peca = cadastrarPeca()
-        peca['codigo'] = str(contador)  # Atribui um código à peça
-        pecas.append(peca)  # Adiciona a peça à lista de peças
-        contador += 1  # Incrementa o contador de código
+        contador += 1 #Incrementa o contador de código
+        pecas.append(cadastrarPeca()) #Adiciona a peça à lista de peças
         print('Peça cadastrada com sucesso no estoque.')
     elif opcao == '2':
         consultarPeca(pecas)
