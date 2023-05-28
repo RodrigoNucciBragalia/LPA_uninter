@@ -1,3 +1,7 @@
+print('Bem Vindo a Loja do Rodrigo Nucci Bragalia')
+RU = 4473087
+
+
 #Função que verifica a quantidade de desconto e faz o calculo do desconto.
 def calc_desc(quantidade, valor_unitario):
     if quantidade < 10:
@@ -16,8 +20,6 @@ def calc_desc(quantidade, valor_unitario):
     return valor_sem_desconto, valor_com_desconto, desconto_por_unidade #retornos da função
 
 #Programa Principal
-print('Bem Vindo a Loja do Rodrigo Nucci Bragalia')
-
 valor_unitario = float(input('Entre com o valor unitario do produto '))
 quantidade = int(input('Entre com a quantidade do produto '))
 

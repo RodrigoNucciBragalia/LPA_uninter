@@ -1,3 +1,6 @@
+print('Lanchonete do Rodrigo Nucci Bragalia')
+RU = 4473087
+
 #Gera o cardapio de acordo com o que possuí no dicionário cardápio que fica
 #no programa principal
 def gerar_cardapio():
@@ -43,7 +46,7 @@ def escolher_produto():
                     continue
         #Se a função verifica_saida retornar n ou N a função é finalizada e retorna o dicionário
         #produtos escolhidos
-        if verifica_saida() == 'n' or verifica_saida() == 'N':
+        if verifica_saida() == 1:
             break
         else:
             continue
@@ -52,17 +55,17 @@ def escolher_produto():
 
 #função criada para evitar que o usuário digite algo diferente de N ou S e o programa continue
 def verifica_saida():
-    x = 's'
-    while x == 's' or x == 'S' or x == 'n' or x == 'N':
-        x = input('Deseja escolher mais um produto? S/N')
-        if x == 'n' or x == 'N':
+    print('Deseja escolher mais um produto?')
+    while True:
+        x = int(input('0 - Sim \n1 - Não\n'))
+        if x == 0:
             return x
             break
-        elif x == 's' or x == 'S':
+        elif x == 1:
             return x
             break
         else:
-            print('Opção inválida Digite S para continuar ou N para sair')
+            print('Opção inválida Digite 0 para Sim ou 1 para não')
             continue
 
 #vai exibir todos os produtos selecionados e o valor final do produto
@@ -83,7 +86,6 @@ def exibe_valor_final():
 
 
 #Programa principal
-print('Lanchonete do Rodrigo Nucci Bragalia')
 
 #dicionário com as informações do produto
 cardapio = {100: {'nome': 'Cachorro Quente', 'valor': 9.00},
